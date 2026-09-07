@@ -6,14 +6,14 @@ Reusable **Veeam Backup & Replication** reporting automation. Read-only.
 
 | Path | Language | What it does | Effect |
 |---|---|---|---|
-| `powershell/get-vbr-job-status.ps1` | PowerShell (`Veeam.Backup.PowerShell`) | Backup job results and repository capacity report | read-only |
+| `powershell/get-vbr-job-status.ps1` | PowerShell (legacy `VeeamPSSnapin` snap-in) | Backup job results and repository capacity report | read-only |
 | `ansible/veeam-job-status.yml` | Ansible (`uri`, VBR REST API) | Backup job status report | read-only |
 | `docs/README-AsBuilt.md` | — | How to produce a VBR as-built report (Windows only; requires the VBR console module) | — |
 | `docs/legacy-README-*.md` | — | Original per-repository READMEs | — |
 
 ## Prerequisites
 
-- PowerShell on a Windows host with the Veeam Backup & Replication console installed (the module is not on the PowerShell Gallery); `Connect-VBRServer` with prompted credentials.
+- PowerShell on a Windows host with the Veeam Backup & Replication console installed (not on the PowerShell Gallery); `Connect-VBRServer` with prompted credentials. The script loads the legacy `VeeamPSSnapin`; Veeam v12+ replaced the snap-in with the `Veeam.Backup.PowerShell` module, so the load block needs updating for v12+ (known stale reference).
 - Ansible with vault-provided REST credentials; VBR REST API enabled.
 
 ## Environment-specific configuration
