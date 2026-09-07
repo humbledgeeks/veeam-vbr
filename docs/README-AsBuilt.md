@@ -45,7 +45,7 @@ New-AsBuiltReport `
   -Credential $cred `
   -Format Html,Word `
   -OutputFolderPath "C:\AsBuiltReports" `
-  -StyleFilePath "C:\AsBuiltReports\e360.Style.ps1" `       # e360 branding (see note)
+  -StyleFilePath "C:\AsBuiltReports\<Company>.Style.ps1" `       # optional company branding (see note)
   -EnableHealthCheck -Verbose
 ```
 
@@ -53,7 +53,7 @@ New-AsBuiltReport `
 
 - `-Target` is usually `localhost` when run on the VBR server; use the VBR host
   name/IP if running from another Windows machine with the console.
-- **e360 logo / branding:** because this runs on Windows, the cover-page logo
+- **Company logo / branding:** because this runs on Windows, the cover-page logo
   embeds correctly here (no macOS `System.Drawing` limitation). `-StyleFilePath`
-  points to `e360.Style.ps1`, pending the logo template. Remove that line until
+  points to `<Company>.Style.ps1`, pending the logo template. Remove that line until
   the style script exists.
